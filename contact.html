@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Contact Fabha to discuss websites, mobile applications, product design, or agency partnership." />
+  <title>Contact | Fabha</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <a class="logo" href="/" aria-label="Fabha home"><img src="/logo-mark.png" alt="" width="40" height="40" /><span>Fabha</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu"><span></span><span></span></button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="/work.html">Work</a>
+      <a href="/services.html">Services</a>
+      <a href="/solutions.html">Solutions</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html" class="nav-cta">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <p class="eyebrow">Contact</p>
+      <p class="brand-sm">Fabha</p>
+      <h1>Let’s talk about what you’re building.</h1>
+      <p class="lede">
+        Share a brief, a Figma file, a product link, or the challenge in front of you.
+        We’ll respond with a clear next step.
+      </p>
+    </section>
+
+    <section class="section contact">
+      <div class="section-inner contact-inner">
+        <div>
+          <p class="eyebrow">Project inquiry</p>
+          <h2>Tell us about the work.</h2>
+          <p class="section-lede">The form opens your email client with a structured brief so nothing important gets lost.</p>
+
+          <form class="form project-form" style="margin-top:1.5rem;">
+            <label>
+              Name
+              <input name="name" type="text" autocomplete="name" required placeholder="Your name" />
+            </label>
+            <label>
+              Email
+              <input name="email" type="email" autocomplete="email" required placeholder="you@company.com" />
+            </label>
+            <label>
+              Company / organization
+              <input name="company" type="text" autocomplete="organization" placeholder="Optional" />
+            </label>
+            <label>
+              I’m interested in
+              <select name="service" id="service-select">
+                <option value="Web design & development">Web design &amp; development</option>
+                <option value="UI/UX design">UI/UX design</option>
+                <option value="App design">App design</option>
+                <option value="Brand identity">Brand identity</option>
+                <option value="Performance optimization">Performance optimization</option>
+                <option value="Maintenance & growth">Maintenance &amp; growth</option>
+                <option value="E-commerce solution">E-commerce solution</option>
+                <option value="E-learning / LMS">E-learning / LMS</option>
+                <option value="Agency partnership">Agency partnership</option>
+                <option value="Something else">Something else</option>
+              </select>
+            </label>
+            <label>
+              Project details
+              <textarea name="message" required placeholder="Goals, timeline, links, budget range, and anything else we should know."></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Send inquiry</button>
+          </form>
+        </div>
+
+        <div>
+          <p class="eyebrow">Other ways to connect</p>
+          <div class="contact-channels">
+            <a class="channel" href="mailto:hello@fabha.org">
+              <strong>Email</strong>
+              <span>hello@fabha.org</span>
+            </a>
+            <a class="channel" href="/partner.html">
+              <strong>Agency partnership</strong>
+              <span>White-label and overflow delivery</span>
+            </a>
+            <a class="channel" href="/work.html">
+              <strong>Review portfolio</strong>
+              <span>See selected work before you write</span>
+            </a>
+          </div>
+          <p class="contact-note" style="margin-top:1.25rem;">
+            Prefer a call or WhatsApp? Mention your preference and availability in the message — we’ll arrange a time.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="/logo-mark.png" alt="" width="44" height="44" />
+          <div><p class="footer-name">Fabha</p><p>Digital product design &amp; development</p></div>
+        </div>
+        <div class="footer-cols">
+          <div><h3>Explore</h3><a href="/work.html">Work</a><a href="/services.html">Services</a><a href="/solutions.html">Solutions</a></div>
+          <div><h3>Company</h3><a href="/about.html">About</a><a href="/partner.html">Partners</a></div>
+          <div><h3>Contact</h3><a href="mailto:hello@fabha.org">hello@fabha.org</a></div>
+          <div><h3>Start</h3><a href="/contact.html">Inquiry form</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>© <span id="year"></span> Fabha. All rights reserved.</p></div>
+    </div>
+  </footer>
+  <div class="connect-dock">
+    <div class="connect-panel"><a href="mailto:hello@fabha.org">Email</a><a href="#main">Back to form</a></div>
+    <button class="connect-toggle" type="button" aria-expanded="false">Let’s connect</button>
+  </div>
+  <script src="/main.js"></script>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("type") === "partner") {
+        const select = document.getElementById("service-select");
+        if (select) select.value = "Agency partnership";
+      }
+    })();
+  </script>
+</body>
+</html>
