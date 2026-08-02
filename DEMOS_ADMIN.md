@@ -17,3 +17,9 @@ Individual preview URLs stay public so outreach recipients can open them:
 5. Open `https://fabha.org/demos/` and sign in with those credentials when the browser prompts
 
 Until `DEMOS_ADMIN_PASSWORD` is set, the index returns **404**.
+
+## Fail closed (recommended)
+
+In the Pages project: **Settings → Runtime → Fail open / closed** → choose **Fail closed**.
+
+That way, if Functions hit a limit, the private index is not served as a public static file.
