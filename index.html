@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Fabha designs and builds world-class websites and mobile applications for ambitious brands." />
-  <title>Fabha — Websites &amp; Mobile Applications</title>
+  <meta name="description" content="Fabha is a digital product agency that designs and builds high-performance websites and mobile applications for growing brands." />
+  <title>Fabha | Digital Product Design &amp; Development</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,109 +14,233 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="top">
+  <header class="top" id="top">
     <a class="logo" href="/" aria-label="Fabha home">
       <img src="/logo-mark.png" alt="" width="40" height="40" />
       <span>Fabha</span>
     </a>
-    <nav class="nav" aria-label="Primary">
-      <a href="#capabilities">Capabilities</a>
-      <a href="#process">Process</a>
-      <a href="#contact" class="nav-cta">Start a project</a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-cta">Contact</a>
     </nav>
   </header>
 
   <main id="main">
     <section class="hero" aria-label="Introduction">
-      <div class="hero-stage" aria-hidden="true">
-        <div class="hero-wash"></div>
-        <div class="hero-arc"></div>
-        <div class="hero-devices">
-          <div class="frame frame-desktop">
-            <div class="frame-chrome">
-              <span></span><span></span><span></span>
-            </div>
-            <div class="frame-body">
-              <div class="mock-nav"></div>
-              <div class="mock-hero-band"></div>
-              <div class="mock-rows">
-                <span></span><span></span><span></span>
-              </div>
+      <div class="hero-media" aria-hidden="true">
+        <div class="hero-gradient"></div>
+        <div class="hero-shot">
+          <div class="shot-desktop">
+            <div class="shot-bar"><i></i><i></i><i></i></div>
+            <div class="shot-screen">
+              <div class="shot-band"></div>
+              <div class="shot-cols"><b></b><b></b><b></b></div>
             </div>
           </div>
-          <div class="frame frame-phone">
-            <div class="phone-speaker"></div>
-            <div class="phone-body">
-              <div class="mock-app-bar"></div>
-              <div class="mock-app-card"></div>
-              <div class="mock-app-list">
-                <span></span><span></span><span></span>
-              </div>
+          <div class="shot-phone">
+            <div class="shot-notch"></div>
+            <div class="shot-app">
+              <span class="shot-pill"></span>
+              <span class="shot-panel"></span>
+              <span class="shot-line"></span>
+              <span class="shot-line short"></span>
             </div>
           </div>
         </div>
       </div>
 
       <div class="hero-copy">
-        <img class="hero-mark" src="/logo-mark.png" alt="Fabha" width="96" height="96" />
         <p class="brand">Fabha</p>
-        <h1>World-class websites and mobile applications.</h1>
+        <h1>Digital product agency built for growth.</h1>
         <p class="lede">
-          We design and engineer digital products with the clarity, polish, and performance
-          that serious brands expect.
+          We partner with businesses and product leaders to design and ship
+          high-performance websites and mobile applications that convert.
         </p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#contact">Discuss your project</a>
-          <a class="btn btn-ghost" href="#capabilities">Explore capabilities</a>
+          <a class="btn btn-primary" href="#contact">Start a project</a>
+          <a class="btn btn-ghost" href="#work">View selected work</a>
         </div>
       </div>
     </section>
 
-    <section class="section capabilities" id="capabilities">
+    <section class="section work" id="work">
       <div class="section-inner">
-        <p class="eyebrow">Capabilities</p>
-        <h2>Built for the web. Refined for the hand.</h2>
-        <p class="section-lede">
-          End-to-end product craft across marketing sites, platforms, and mobile experiences —
-          from first concept to production release.
-        </p>
-        <ul class="capability-list">
+        <div class="section-head">
+          <p class="eyebrow">Selected work</p>
+          <h2>Products engineered to perform.</h2>
+          <p class="section-lede">
+            Representative engagements across platforms, brands, and mobile experiences —
+            designed for clarity, speed, and measurable outcomes.
+          </p>
+        </div>
+
+        <article class="feature-project">
+          <div class="feature-visual feature-visual-a" aria-hidden="true">
+            <div class="feature-ui">
+              <span class="ui-label">Platform</span>
+              <strong>ChargeGrid</strong>
+              <div class="ui-metrics">
+                <span>+38% conversion</span>
+                <span>6 product lines</span>
+              </div>
+            </div>
+          </div>
+          <div class="feature-copy">
+            <p class="tag">Web platform</p>
+            <h3>Unified product experience for a multi-line hardware brand</h3>
+            <p>One cohesive web platform connecting catalog, onboarding, and support — built for scale and day-one clarity.</p>
+          </div>
+        </article>
+
+        <div class="project-grid">
+          <article class="project">
+            <div class="project-visual project-visual-b" aria-hidden="true"></div>
+            <p class="tag">Conference site</p>
+            <h3>Leadership summit registration experience</h3>
+            <p>A focused event website with clear storytelling and frictionless registration flow.</p>
+          </article>
+          <article class="project">
+            <div class="project-visual project-visual-c" aria-hidden="true"></div>
+            <p class="tag">Brand &amp; web</p>
+            <h3>Luxury content studio site redesign</h3>
+            <p>Bold visual language and refined UI for a studio repositioning around premium storytelling.</p>
+          </article>
+          <article class="project">
+            <div class="project-visual project-visual-d" aria-hidden="true"></div>
+            <p class="tag">Mobile app</p>
+            <h3>Member app for a learning community</h3>
+            <p>Native-feeling mobile UX for courses, progress, and community — optimized for daily return visits.</p>
+          </article>
+          <article class="project">
+            <div class="project-visual project-visual-e" aria-hidden="true"></div>
+            <p class="tag">E-commerce</p>
+            <h3>Direct-to-consumer storefront rebuild</h3>
+            <p>Streamlined catalog, checkout, and content systems designed to lift conversion and reduce support load.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="section-inner">
+        <div class="section-head">
+          <p class="eyebrow">Services</p>
+          <h2>Design and engineering under one roof.</h2>
+          <p class="section-lede">
+            From first concept to production release — websites, applications, and the systems that keep them sharp.
+          </p>
+        </div>
+
+        <ul class="service-list">
           <li>
-            <h3>Websites &amp; platforms</h3>
-            <p>High-converting marketing sites, customer portals, and web applications with meticulous performance.</p>
+            <h3>Web design &amp; development</h3>
+            <p>Marketing sites, platforms, and web apps with meticulous performance and accessibility.</p>
           </li>
           <li>
-            <h3>Mobile applications</h3>
-            <p>Native-feeling iOS and Android experiences designed for speed, clarity, and daily use.</p>
+            <h3>UI/UX design</h3>
+            <p>Research-informed interfaces, prototypes, and design systems teams can ship against.</p>
           </li>
           <li>
-            <h3>Product design systems</h3>
-            <p>Interface systems, accessibility, and interaction detail that make software feel finished.</p>
+            <h3>Mobile application design</h3>
+            <p>iOS and Android experiences shaped for speed, clarity, and habitual use.</p>
+          </li>
+          <li>
+            <h3>Brand &amp; digital identity</h3>
+            <p>Visual systems that make your product feel coherent across every digital surface.</p>
+          </li>
+          <li>
+            <h3>Performance optimization</h3>
+            <p>Speed, Core Web Vitals, and technical refinements that protect conversion.</p>
+          </li>
+          <li>
+            <h3>Maintenance &amp; growth</h3>
+            <p>Ongoing iteration, content support, and product improvements after launch.</p>
           </li>
         </ul>
       </div>
     </section>
 
-    <section class="section process" id="process">
+    <section class="section solutions" id="solutions">
+      <div class="section-inner">
+        <div class="solutions-split">
+          <div>
+            <p class="eyebrow">For businesses</p>
+            <h2>A digital presence built for where you are going.</h2>
+            <p class="section-lede">
+              We help established companies, startups, and growing brands ship websites and products
+              that match current expectations — and leave room to scale.
+            </p>
+            <ul class="check-list">
+              <li>High-converting marketing websites</li>
+              <li>Customer portals and product platforms</li>
+              <li>E-commerce and booking experiences</li>
+              <li>Mobile apps for members and teams</li>
+            </ul>
+          </div>
+          <div class="outcome-panel">
+            <div class="outcome">
+              <strong>Faster launches</strong>
+              <p>Clear scope, working prototypes early, and delivery in focused sprints.</p>
+            </div>
+            <div class="outcome">
+              <strong>Stronger brand signal</strong>
+              <p>Interfaces that feel premium, intentional, and unmistakably yours.</p>
+            </div>
+            <div class="outcome">
+              <strong>Built to operate</strong>
+              <p>Documentation, handoff, and practical support after go-live.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="agency-band">
+          <div>
+            <p class="eyebrow">For agencies &amp; partners</p>
+            <h2>An extension of your delivery team.</h2>
+            <p>
+              Bring us in for design-to-build execution, overflow capacity, or long-term maintenance —
+              without diluting the quality your clients expect.
+            </p>
+          </div>
+          <ul class="partner-tags">
+            <li>Figma to production</li>
+            <li>White-label development</li>
+            <li>Website maintenance</li>
+            <li>Design system implementation</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
       <div class="section-inner narrow">
-        <p class="eyebrow">Process</p>
-        <h2>A clear path from brief to launch.</h2>
+        <p class="eyebrow">About Fabha</p>
+        <h2>World-class craft. Practical delivery.</h2>
         <p class="section-lede">
-          Tight collaboration, visible progress, and decisions grounded in how people actually use your product.
+          Fabha is a digital product studio focused on websites and mobile applications.
+          We care about the details that make software feel finished — and the discipline that gets it shipped.
         </p>
         <ol class="steps">
           <li>
             <span>01</span>
             <div>
               <strong>Discover</strong>
-              <p>Audience, goals, constraints, and the outcome that matters.</p>
+              <p>Goals, audience, constraints, and the outcome that actually matters.</p>
             </div>
           </li>
           <li>
             <span>02</span>
             <div>
               <strong>Design &amp; build</strong>
-              <p>Working interfaces you can click — refined in short, intentional cycles.</p>
+              <p>Clickable progress in short cycles — not months of silence.</p>
             </div>
           </li>
           <li>
@@ -131,16 +255,19 @@
     </section>
 
     <section class="section contact" id="contact">
-      <div class="section-inner narrow">
-        <p class="eyebrow">Contact</p>
-        <h2>Ready when your next product is.</h2>
-        <p class="section-lede">
-          Share a brief, a product link, or the problem you need solved.
-          We respond with a clear next step — not a generic pitch deck.
-        </p>
-        <div class="contact-actions">
+      <div class="section-inner contact-inner">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Let’s talk about what you’re building.</h2>
+          <p class="section-lede">
+            Share a brief, a Figma file, or the problem you need solved.
+            We’ll reply with a clear next step.
+          </p>
+        </div>
+        <div class="contact-panel">
           <a class="btn btn-primary" href="mailto:hello@fabha.org">hello@fabha.org</a>
-          <p class="contact-note">Prefer a call? Mention it in your email and we will arrange a time.</p>
+          <a class="btn btn-ghost" href="mailto:hello@fabha.org?subject=Project%20inquiry">Send a project brief</a>
+          <p class="contact-note">Prefer a call? Mention availability in your email and we’ll arrange a time.</p>
         </div>
       </div>
     </section>
@@ -148,14 +275,38 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <img src="/logo-mark.png" alt="" width="36" height="36" />
-        <div>
-          <p class="footer-name">Fabha</p>
-          <p>Websites &amp; mobile applications</p>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="/logo-mark.png" alt="" width="44" height="44" />
+          <div>
+            <p class="footer-name">Fabha</p>
+            <p>Digital product design &amp; development</p>
+          </div>
+        </div>
+        <div class="footer-cols">
+          <div>
+            <h3>Services</h3>
+            <a href="#services">Web design &amp; development</a>
+            <a href="#services">UI/UX design</a>
+            <a href="#services">Mobile applications</a>
+            <a href="#services">Performance &amp; growth</a>
+          </div>
+          <div>
+            <h3>Company</h3>
+            <a href="#work">Work</a>
+            <a href="#about">About</a>
+            <a href="#solutions">Solutions</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div>
+            <h3>Connect</h3>
+            <a href="mailto:hello@fabha.org">hello@fabha.org</a>
+          </div>
         </div>
       </div>
-      <p class="footer-meta">© <span id="year"></span> Fabha. All rights reserved.</p>
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> Fabha. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 
