@@ -9,7 +9,7 @@ onScroll();
 window.addEventListener("scroll", onScroll, { passive: true });
 
 const revealTargets = document.querySelectorAll(
-  ".section h2, .section-lede, .build-list li, .steps li, .contact-actions"
+  ".section h2, .section-lede, .capability-list li, .steps li, .contact-actions"
 );
 revealTargets.forEach((el) => el.classList.add("reveal"));
 
