@@ -1,10 +1,5 @@
 {
   "version": 1,
-  "include": [
-    "/demos",
-    "/demos/",
-    "/demos/index.html",
-    "/demos/_private_index.html"
-  ],
+  "include": ["/demos", "/demos/"],
   "exclude": []
 }
