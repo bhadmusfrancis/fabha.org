@@ -87,10 +87,13 @@ img { max-width: 100%; display: block; }
   align-content: end;
   padding: 0 0 3.5rem;
   color: #f3fafb;
-  background:
-    linear-gradient(115deg, rgba(8, 28, 36, 0.92) 0%, rgba(14, 55, 62, 0.78) 48%, rgba(12, 40, 48, 0.88) 100%),
-    radial-gradient(circle at 70% 30%, #2a7a74 0%, transparent 42%),
-    linear-gradient(160deg, var(--hero-deep), var(--hero-mid));
+  background-color: var(--hero-deep);
+  background-image:
+    linear-gradient(115deg, rgba(8, 28, 36, 0.88) 0%, rgba(14, 55, 62, 0.72) 48%, rgba(12, 40, 48, 0.84) 100%),
+    var(--hero-image, linear-gradient(160deg, var(--hero-deep), var(--hero-mid)));
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
   overflow: hidden;
 }
 
@@ -263,6 +266,39 @@ img { max-width: 100%; display: block; }
 
 .page-hero {
   padding: 3.5rem 0 1.5rem;
+}
+
+.page-visual {
+  width: 100%;
+  min-height: min(38vh, 320px);
+  background-image:
+    linear-gradient(180deg, rgba(16, 32, 40, 0.35), rgba(16, 32, 40, 0.15)),
+    var(--page-image, linear-gradient(160deg, var(--hero-deep), var(--hero-mid)));
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.visual-band {
+  padding-top: 1rem;
+}
+
+.visual-figure {
+  margin: 0;
+}
+
+.visual-figure img {
+  width: 100%;
+  max-height: min(52vh, 520px);
+  object-fit: cover;
+  border: 0;
+}
+
+.visual-figure figcaption {
+  margin-top: 0.65rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  max-width: 42rem;
 }
 
 .page-hero h1 {
