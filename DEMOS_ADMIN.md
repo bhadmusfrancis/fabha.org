@@ -13,13 +13,13 @@ Individual preview URLs stay public so outreach recipients can open them:
 3. Add:
    - `DEMOS_ADMIN_USER` = `admin` (optional; this is the default)
    - `DEMOS_ADMIN_PASSWORD` = a strong password only you know  
-4. Save and retry the latest deployment (or push any commit) so the variable is live  
-5. Open `https://fabha.org/demos/` and sign in with those credentials when the browser prompts
+4. Save and **retry deployment** so the variable is applied  
+5. Open `https://fabha.org/demos/` — the browser will ask for username/password
 
 Until `DEMOS_ADMIN_PASSWORD` is set, the index returns **404**.
 
 ## Fail closed (recommended)
 
-In the Pages project: **Settings → Runtime → Fail open / closed** → choose **Fail closed**.
+**Settings → Runtime → Fail open / closed** → **Fail closed**
 
-That way, if Functions hit a limit, the private index is not served as a public static file.
+Without this, a Functions outage could fall back to static files.
