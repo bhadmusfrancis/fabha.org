@@ -1,35 +1,31 @@
-# Admin access to `/demos/`
+# Admin-only demo listing
 
-`https://fabha.org/demos/` (directory listing) is **admin-only**.
+| URL | Access |
+|---|---|
+| `https://fabha.org/demos/<slug>/` | Public (for outreach recipients) |
+| `https://fabha.org/demos/` | No listing (404) |
+| `https://fabha.org/admin/demos/` | **Admin only** — protect with Cloudflare Access |
 
-Individual preview URLs stay public for outreach:
+## Protect `/admin/*` with Cloudflare Access
 
-`https://fabha.org/demos/<slug>/`
+1. Open [Zero Trust Dashboard](https://one.dash.cloudflare.com/)  
+2. **Access** → **Applications** → **Add an application** → **Self-hosted**  
+3. Configure:
+   - **Application name:** Fabha Admin  
+   - **Session duration:** e.g. 24 hours  
+   - **Public hostname:** `fabha.org`  
+   - **Path:** `admin` (or `admin/*` if shown)  
+4. **Add a policy**
+   - Action: **Allow**  
+   - Include → **Emails** → your admin email (e.g. `hello@fabha.org`)  
+5. Login method: enable **One-time PIN** (email code)  
+6. Save
 
-## 1. Set admin credentials (Pages Functions)
+After that, opening `https://fabha.org/admin/demos/` prompts for your email + code. Everyone else is blocked.
 
-1. Cloudflare Dashboard → **Workers & Pages** → fabha.org project  
-2. **Settings** → **Environment variables** → **Production**  
-3. Add:
-   - `DEMOS_ADMIN_USER` = `admin` (optional)
-   - `DEMOS_ADMIN_PASSWORD` = a strong password  
-4. **Settings** → **Runtime** → **Fail open / closed** → **Fail closed**  
-5. Retry the latest deployment  
-6. Open `https://fabha.org/demos/` and sign in when prompted
+Do **not** put Access on `/demos/*` — that would lock the preview links you send to businesses.
 
-Until the password is set, `/demos/` returns **404**.
-
-## 2. Backup: Cloudflare Access (Zero Trust)
-
-If the browser never asks for a password (Functions not running), protect the path with Access:
-
-1. [Zero Trust Dashboard](https://one.dash.cloudflare.com/) → **Access** → **Applications** → **Add an application** → **Self-hosted**  
-2. Application domain: `fabha.org` path `/demos` (exact index; do **not** use `/demos/*` or individual previews will lock)  
-   - If path matching is prefix-only in your account, use Access on a separate admin host instead (e.g. `admin.fabha.org`) and keep previews on `fabha.org/demos/<slug>/`  
-3. Policy: **Allow** your admin email (One-time PIN)  
-4. Save
-
-## Publish
+## Publish updates
 
 ```bash
 python scripts/publish_demos.py --push
