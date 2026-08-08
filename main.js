@@ -1,4 +1,4 @@
-document.querySelectorAll("#year").forEach((el) => {
+﻿document.querySelectorAll("#year").forEach((el) => {
   el.textContent = String(new Date().getFullYear());
 });
 
@@ -61,23 +61,107 @@ if (dock && dockToggle) {
   });
 }
 
-const form = document.querySelector(".project-form");
-if (form) {
+const CONTACT_EMAIL = "francis@fabha.org";
+const MIN_SUBMIT_MS = 2800;
+const TOKEN_PREFIX = "fabha";
+
+function makeFormToken() {
+  const rand = Math.random().toString(36).slice(2, 10);
+  return `${TOKEN_PREFIX}-${Date.now().toString(36)}-${rand}`;
+}
+
+function botSignals(data, startedAt, expectedToken) {
+  const honey = String(data.get("website") || "").trim();
+  const token = String(data.get("form_token") || "").trim();
+  const human = data.get("human");
+  const elapsed = Date.now() - startedAt;
+  return {
+    honey: Boolean(honey),
+    noHuman: !human,
+    badToken: !token || token !== expectedToken || !token.startsWith(`${TOKEN_PREFIX}-`),
+    tooFast: !Number.isFinite(startedAt) || elapsed < MIN_SUBMIT_MS,
+  };
+}
+
+function setFormStatus(form, message, type) {
+  const status = form.querySelector(".form-status");
+  if (!status) return;
+  status.hidden = !message;
+  status.textContent = message || "";
+  status.classList.toggle("is-error", type === "error");
+  status.classList.toggle("is-ok", type === "ok");
+}
+
+document.querySelectorAll("form[data-bot-guard], .project-form").forEach((form) => {
+  const tokenInput = form.querySelector('input[name="form_token"]');
+  const startedInput = form.querySelector('input[name="form_started"]');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  let startedAt = Date.now();
+  let token = makeFormToken();
+
+  const armGuard = () => {
+    startedAt = Date.now();
+    token = makeFormToken();
+    if (tokenInput) tokenInput.value = token;
+    if (startedInput) startedInput.value = String(startedAt);
+  };
+
+  armGuard();
+  if (submitBtn) submitBtn.disabled = false;
+
   form.addEventListener("submit", (event) => {
     event.preventDefault();
+    setFormStatus(form, "", null);
+
     const data = new FormData(form);
     const name = String(data.get("name") || "").trim();
     const email = String(data.get("email") || "").trim();
     const company = String(data.get("company") || "").trim();
     const service = String(data.get("service") || "").trim();
     const message = String(data.get("message") || "").trim();
+
+    const signals = botSignals(data, startedAt, token);
+    if (signals.honey || signals.badToken) {
+      // Silent decoy for automated spam — do not open mail.
+      form.reset();
+      armGuard();
+      setFormStatus(form, "Thanks — if everything looks right, your email client will open next.", "ok");
+      return;
+    }
+
+    if (signals.noHuman) {
+      setFormStatus(form, "Confirm you are a real person before sending.", "error");
+      return;
+    }
+
+    if (signals.tooFast) {
+      setFormStatus(form, "Please review your message for a moment, then try sending again.", "error");
+      return;
+    }
+
+    if (!name || !email || !message) {
+      setFormStatus(form, "Please complete the required fields before sending.", "error");
+      return;
+    }
+
+    if (message.length < 20) {
+      setFormStatus(form, "Add a bit more detail (at least a couple of sentences) so we can respond usefully.", "error");
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setFormStatus(form, "Enter a valid email address so we can reply.", "error");
+      return;
+    }
+
     const subject = encodeURIComponent(`Project inquiry${service ? ` — ${service}` : ""}`);
     const body = encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\nCompany: ${company}\nService: ${service}\n\n${message}`
     );
-    window.location.href = `mailto:hello@fabha.org?subject=${subject}&body=${body}`;
+    setFormStatus(form, "Opening your email client…", "ok");
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
   });
-}
+});
 
 const revealTargets = document.querySelectorAll(
   ".section-head, .feature-project, .project, .service-list li, .page-card, .stat-block, .agency-panel > *, .review-card, .steps li, .values-grid article, .contact-inner > *, .detail-list li, .audience-grid > *"

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -43,22 +43,30 @@
           <h2>Tell us about the work.</h2>
           <p class="section-lede">The form opens your email client with a structured brief so nothing important gets lost.</p>
 
-          <form class="form project-form" style="margin-top:1.5rem;">
+          <form class="form project-form" style="margin-top:1.5rem;" method="post" action="#" autocomplete="on" novalidate data-bot-guard>
+            <input type="hidden" name="form_token" value="" />
+            <input type="hidden" name="form_started" value="" />
+            <div class="hp-field" aria-hidden="true">
+              <label>
+                Website
+                <input name="website" type="text" tabindex="-1" autocomplete="off" />
+              </label>
+            </div>
             <label>
               Name
-              <input name="name" type="text" autocomplete="name" required placeholder="Your name" />
+              <input name="name" type="text" autocomplete="name" required maxlength="120" placeholder="Your name" />
             </label>
             <label>
               Email
-              <input name="email" type="email" autocomplete="email" required placeholder="you@company.com" />
+              <input name="email" type="email" autocomplete="email" required maxlength="160" placeholder="you@company.com" />
             </label>
             <label>
               Company / organization
-              <input name="company" type="text" autocomplete="organization" placeholder="Optional" />
+              <input name="company" type="text" autocomplete="organization" maxlength="160" placeholder="Optional" />
             </label>
             <label>
               I’m interested in
-              <select name="service" id="service-select">
+              <select name="service" id="service-select" required>
                 <option value="Web design & development">Web design &amp; development</option>
                 <option value="UI/UX design">UI/UX design</option>
                 <option value="App design">App design</option>
@@ -78,18 +86,23 @@
             </label>
             <label>
               Project details
-              <textarea name="message" required placeholder="Goals, timeline, links, budget range, and anything else we should know."></textarea>
+              <textarea name="message" required minlength="20" maxlength="5000" placeholder="Goals, timeline, links, budget range, and anything else we should know."></textarea>
             </label>
-            <button class="btn btn-primary" type="submit">Send inquiry</button>
+            <label class="check-human">
+              <input name="human" type="checkbox" value="1" required />
+              <span>I am a real person sending this inquiry</span>
+            </label>
+            <p class="form-status" role="status" aria-live="polite" hidden></p>
+            <button class="btn btn-primary" type="submit" disabled>Send inquiry</button>
           </form>
         </div>
 
         <div>
           <p class="eyebrow">Other ways to connect</p>
           <div class="contact-channels">
-            <a class="channel" href="mailto:hello@fabha.org">
+            <a class="channel" href="mailto:francis@fabha.org">
               <strong>Email</strong>
-              <span>hello@fabha.org</span>
+              <span>Write to us directly</span>
             </a>
             <a class="channel" href="https://wa.me/2347068762348?text=Hi%20Fabha%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer">
               <strong>WhatsApp</strong>
@@ -122,7 +135,7 @@
         <div class="footer-cols">
           <div><h3>Explore</h3><a href="/work.html">Work</a><a href="/services.html">Services</a><a href="/services.html#geospatial">GIS &amp; surveying</a><a href="/solutions.html">Solutions</a></div>
           <div><h3>Company</h3><a href="/about.html">About</a><a href="/partner.html">Partners</a></div>
-          <div><h3>Contact</h3><a href="mailto:hello@fabha.org">hello@fabha.org</a></div>
+          <div><h3>Contact</h3><a href="mailto:francis@fabha.org">Email</a></div>
           <div><h3>Start</h3><a href="/contact.html">Inquiry form</a></div>
         </div>
       </div>
@@ -130,7 +143,7 @@
     </div>
   </footer>
   <div class="connect-dock">
-    <div class="connect-panel"><a href="mailto:hello@fabha.org">Email</a><a href="#main">Back to form</a></div>
+    <div class="connect-panel"><a href="mailto:francis@fabha.org">Email</a><a href="#main">Back to form</a></div>
     <button class="connect-toggle" type="button" aria-expanded="false">Let’s connect</button>
   </div>
   <script src="/main.js"></script>

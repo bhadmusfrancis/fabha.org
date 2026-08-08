@@ -972,6 +972,7 @@ a {
 .channel:hover { border-color: rgba(232, 90, 28, 0.45); }
 
 .form {
+  position: relative;
   display: grid;
   gap: 0.9rem;
   width: 100%;
@@ -1005,6 +1006,55 @@ a {
 }
 
 .form textarea { min-height: 140px; resize: vertical; }
+
+.form .hp-field {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form .check-human {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.form .check-human input {
+  width: auto;
+  margin-top: 0.2rem;
+  accent-color: var(--forest);
+}
+
+.form .form-status {
+  margin: 0;
+  padding: 0.75rem 0.9rem;
+  border-radius: 0.45rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.form .form-status.is-error {
+  background: rgba(180, 40, 30, 0.08);
+  color: #7a1f18;
+  border: 1px solid rgba(180, 40, 30, 0.2);
+}
+
+.form .form-status.is-ok {
+  background: rgba(21, 71, 52, 0.08);
+  color: var(--forest-deep);
+  border: 1px solid rgba(21, 71, 52, 0.18);
+}
+
+.form button[type="submit"]:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
 
 /* Page hero */
 .page-hero {
